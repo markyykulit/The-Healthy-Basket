@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - The Healthy Basket</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="logo.png"> 
+    <style>
+        /* Basic styling for the feedback message */
+        #login-message {
+            margin-top: 15px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .success { color: #28a745; } /* Green */
+        .failed { color: #dc3545; }  /* Red */
+    </style>
+</head>
+<body class="login-body">
+    <div class="form-container">
+        <img src="logo.png" alt="Logo" class="login-logo">
+        
+        <h2 class="login-title">The Healthy Basket</h2>
+        <p class="login-subtitle">Welcome back! Please Log in!</p>
+        
+        <!-- Added an ID to the form to handle it with JavaScript -->
+        <form id="loginForm">
+            <div class="form-group">
+                <label>Username</label>
+                <!-- Added id="username" -->
+                <input type="text" id="username" placeholder="Enter username" required>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <!-- Added id="password" -->
+                <input type="password" id="password" placeholder="Enter password" required>
+            </div>
+            <button type="submit" class="btn login-btn">Login</button>
+        </form>
+
+        <!-- Placeholder for the Success/Failed message -->
+        <p id="login-message"></p>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            // 1. Prevent the form from redirecting immediately
+            event.preventDefault();
+
+            // 2. Get the values from the inputs
+            const user = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
+            const messageElement = document.getElementById('login-message');
+
+            // 3. Set your "correct" credentials here
+            const correctUser = "admin"; 
+            const correctPass = "admin123";
+
+            // 4. Check if the password is correct
+            if (user === correctUser && pass === correctPass) {
+                messageElement.textContent = "Success! Redirecting...";
+                messageElement.className = "success";
+                
+                // Redirect to home page after 1.5 seconds so user can see "Success"
+                setTimeout(() => {
+                    window.location.href = "home.html";
+                }, 1500);
+            } else {
+                messageElement.textContent = "Failed! Incorrect username or password.";
+                messageElement.className = "failed";
+            }
+        });
+    </script>
+</body>
+</html>

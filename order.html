@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order - The Healthy Basket</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo" class="nav-logo-img"> 
+            <span class="logo-text">The Healthy Basket</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="order.html">Order</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="index.html" class="logout-btn">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="form-container">
+        <h2 style="color: #2d4628; text-align: center; margin-bottom: 25px;">Place Your Order</h2>
+        
+        <form action="#">
+            <!-- 1. Customer Info -->
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" placeholder="Juan Dela Cruz" required>
+            </div>
+            <div class="form-group">
+                <label>Contact Number</label>
+                <input type="tel" placeholder="0912 345 6789" required>
+            </div>
+            <!-- Added complete Address field -->
+            <div class="form-group">
+                <label>Complete Address</label>
+                <textarea placeholder="House No., Street, Barangay, City/Province" rows="3" required></textarea>
+            </div>
+
+            <!-- 2. Product Selection -->
+            <div class="form-group">
+                <label>Select Fruit</label>
+                <select required>
+                    <option value="">Choose a fruit...</option>
+                    <option>Guimaras Mango</option>
+                    <option>Lakatan Bananas</option>
+                    <option>Sweet Pineapple</option>
+                    <option>Mangosteen</option>
+                    <option>Sweet Watermelon</option>
+                    <option>Avocado</option>
+                </select>
+            </div>
+
+            <!-- 3. Quantity Field with Unit Selector -->
+            <div class="form-group">
+                <label>Quantity</label>
+                <div class="quantity-container">
+                    <input type="number" min="1" value="1" class="qty-input" required>
+                    <select class="unit-select">
+                        <option value="pcs">Pcs</option>
+                        <option value="kilo">Kilo</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- 4. Payment Method (Fixed Alignment) -->
+            <div class="form-group">
+    <label>Payment Method</label>
+    <div class="payment-options">
+        <label class="radio-label">
+            <input type="radio" name="payment" value="cod" checked> 
+            <span>Cash on Delivery</span>
+        </label>
+        <label class="radio-label">
+            <input type="radio" name="payment" value="gcash"> 
+            <span>GCash</span>
+        </label>
+        <label class="radio-label">
+            <input type="radio" name="payment" value="card"> 
+            <span>Credit Card</span>
+        </label>
+    </div>
+</div>
+
+<!-- NEW: Proof of Payment Upload -->
+<div class="form-group" id="receipt-upload">
+    <label>Proof of Payment (Screenshot/Receipt)</label>
+    <p style="font-size: 0.8rem; color: #666; margin-bottom: 10px;">
+        Required for GCash and Credit Card payments.
+    </p>
+    <div class="file-upload-wrapper">
+        <input type="file" name="receipt" id="receipt" accept="image/*" class="file-input">
+    </div>
+</div>
+            <!-- 5. Submit Button -->
+            <button type="submit" class="btn order-submit-btn">Confirm Order</button>
+        </form>
+    </div>
+
+    <footer><p>&copy; 2024 The Healthy Basket</p></footer>
+</body>
+<script>
+    const radioButtons = document.querySelectorAll('input[name="payment"]');
+    const uploadSection = document.getElementById('receipt-upload');
+
+    radioButtons.forEach(radio => {
+        radio.addEventListener('change', () => {
+            if (radio.value === 'cod') {
+                uploadSection.style.display = 'none';
+            } else {
+                uploadSection.style.display = 'block';
+            }
+        });
+    });
+
+    // Run once on load to set initial state
+    if (document.querySelector('input[value="cod"]').checked) {
+        uploadSection.style.display = 'none';
+    }
+</script>
+</html>

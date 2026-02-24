@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact - The Healthy Basket</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo" class="nav-logo-img"> 
+            <span class="logo-text">The Healthy Basket</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="order.html">Order</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="index.html" class="logout-btn">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="container" style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
+        <!-- Contact Info -->
+        <div style="flex: 1; min-width: 300px; background: var(--primary-green); color: white; padding: 40px; border-radius: 15px;">
+            <h3>Get in Touch</h3><br>
+            <p>📧 thehealthybasket@gmail.com</p>
+            <p>📞 +63 9123456789</p>
+            <p>📍  Rosales, Pangasinan</p>
+            <br>
+            <p>Open: 8:00 AM - 6:00 PM</p>
+        </div>
+
+        <!-- Contact Form -->
+        <div style="flex: 1; min-width: 300px; background: white; padding: 40px; border-radius: 15px; box-shadow: var(--shadow);">
+            <h3>Send us a Message</h3><br>
+            <form>
+                <div class="form-group"><input type="text" placeholder="Your Name" required></div>
+                <div class="form-group"><input type="email" placeholder="Your Email" required></div>
+                <div class="form-group"><textarea placeholder="How can we help you?" rows="5" required></textarea></div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
